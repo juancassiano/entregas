@@ -16,7 +16,7 @@ export async function ensureAuthenticateDeliveryman(request: Request, response: 
 
   try{
    const {sub} =  verify(token,"e10adc3949ba59abbe555057f20f883e") as IPayLoad;
-   request.id_delivery = sub;
+   request.id_deliveryman = sub;
 
    return next();
 
