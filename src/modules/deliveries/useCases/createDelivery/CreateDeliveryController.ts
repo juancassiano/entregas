@@ -1,9 +1,10 @@
 import { CreateDeliveryUseCase } from './CreateDeliveryUseCase';
 import {Request, Response } from "express";
 
-export class CreateDealiveryController{
+export class CreateDeliveryController{
   async handle(request: Request, response: Response){
-    const {id_client, item_name} = request.body;
+    const {item_name} = request.body;
+    const {id_client} = request;
 
     const createDeliveryUseCase = new CreateDeliveryUseCase();
 
@@ -12,7 +13,7 @@ export class CreateDealiveryController{
       item_name,
     });
 
-    return response.json(delivery);
+    return response.json(delivery); 
 
   }
 }
